@@ -1,0 +1,10 @@
+<div>
+  <strong>Body:</strong>
+  <%= post.body %>
+  <% if user_signed_in? %>
+    <div>
+      author:
+      <%= User.find(post.user_id).username %>
+    </div>
+  <% end %>
+</div>

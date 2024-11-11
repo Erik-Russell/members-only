@@ -8,3 +8,4 @@
 <% if user_signed_in? %>
   <div>Your username is <%= current_user.username %></div>
 <% end %>
+<%= link_to "Posts", posts_path %>
