@@ -6,9 +6,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = current_user.posts.create(post_params)
+    redirect_to posts_path
   end
 
   private
@@ -19,5 +22,9 @@ class PostsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
+  end
+
+  def post_params
+    params.expect(post: [:body])
   end
 end
